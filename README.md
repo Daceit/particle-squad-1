@@ -3,7 +3,7 @@
 pachinko machine maybe with blocks that break
 
 ## ✦ Tess ✦  
-Hia! Looking forward to working together 
+Hia! I'll be doing a sparkler that follows the mouse 
 
 ## Jun
 make a campfire with smoke particle
