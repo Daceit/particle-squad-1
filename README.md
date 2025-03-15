@@ -1,7 +1,7 @@
 # particle-squad-1
 ## Matthew
 pachinko machine maybe with blocks that break
-*task B
+task B
 
 ## ✦ Tess ✦  
 Hia! I'll be doing a sparkler that follows the mouse
