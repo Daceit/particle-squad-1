@@ -9,7 +9,8 @@ implementing the doubly linked list by Monday 3-17
 
 ## Jun
 make a campfire with smoke particle
+Task d
 
 ## Raymond
 Hello, excited to work together.
-Task d
+
