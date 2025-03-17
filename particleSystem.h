@@ -1,14 +1,14 @@
 #include <iostream>
+#include "particle.h"
 using namespace std;
 class particleSystem {
 	int columns, rows; 
-	Particle* head;
-	Particle* tail; 
+	particle* head;
+	particle* tail; 
 	int count; 
 
 public: 
-	ParticleSystem(int cols, int rows) : columns(cols), rows(rows), head(nullptr), tail(nullptr), count(0){}
-	~ParticleSystem();
+	particleSystem(int cols, int rows) : columns(cols), rows(rows), head(nullptr), tail(nullptr), count(0){}
 	void addParticle(int x, int y){
 		cout << "Add particles" << endl; 
 	}
