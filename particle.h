@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
+using namespace std;
 class particle {
 double position = 0;
 double velocity = 0;
 double lifetime = 0;
 string movement_type = "UNSET"; // STREAMER  BALLISTIC  FIREWORK
-	public:
-particle(double Npos, double Nvel, double Nlif, string Nmov) : position(Npos), velocity(Nvel), lifetime(Nlif), movement_type(Nmov){
-};
+public:
+particle (double Npos, double Nvel, double Nlif, string Nmov) : position(Npos), velocity(Nvel), lifetime(Nlif), movement_type(Nmov){}
 double get_position(){
 return position;
 }
@@ -29,7 +29,7 @@ velocity = Npos;
 void set_lifetime(double Npos){
 lifetime = Npos;
 }
-void set_movement_type(double Npos){
+void set_movement_type(string Npos){
 movement_type = Npos;
 }
 string physics(){
