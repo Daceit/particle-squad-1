@@ -2,31 +2,38 @@
 #include <string>
 using namespace std;
 class particle {
-double position = 0;
-double velocity = 0;
-double lifetime = 0;
+int x = 0;
+int y = 0;
+int velocity = 0;
+int lifetime = 0;
 string movement_type = "UNSET"; // STREAMER  BALLISTIC  FIREWORK
 public:
-particle (double Npos, double Nvel, double Nlif, string Nmov) : position(Npos), velocity(Nvel), lifetime(Nlif), movement_type(Nmov){}
-double get_position(){
-return position;
+particle (int Nx, int Ny, int Nvel, int Nlif, string Nmov) : x(Nx), y(Ny) , velocity(Nvel), lifetime(Nlif), movement_type(Nmov){}
+int get_y(){
+return y;
 }
-double get_velocity(){
+int get_x(){
+return x;
+}
+int get_velocity(){
 return velocity;
 }
-double get_lifetime(){
+int get_lifetime(){
 return lifetime;
 }
 string get_movement_type(){
 return movement_type;
 }
-void set_position(double Npos){
-position = Npos;
+void set_x(int Nx){
+x = Nx;
 }
-void set_velocity(double Npos){
+void set_y(int Ny){
+y = Ny;
+}
+void set_velocity(int Npos){
 velocity = Npos;
 }
-void set_lifetime(double Npos){
+void set_lifetime(int Npos){
 lifetime = Npos;
 }
 void set_movement_type(string Npos){
