@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Particle.h"
+#include "particle.h"
 using namespace std;
 
 class Cell {
