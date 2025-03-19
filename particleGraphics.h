@@ -18,6 +18,7 @@ class PartGraphic {
 			return color;
 		}
 		void draw_point(int row, int col) {
+			clearscreen();
 			movecursor(col,row);
 			cout << color;
 			cout << " ";
