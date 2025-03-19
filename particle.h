@@ -1,22 +1,27 @@
 #include <iostream>
 #include <string>
+#include "/public/colors.h"
 using namespace std;
 class particle {
 int x = 0;
 int y = 0;
-int velocity = 0;
+int velocityX = 0;
+int velocityY = 0;
 int lifetime = 0;
 string movement_type = "UNSET"; // STREAMER  BALLISTIC  FIREWORK
 public:
-particle (int Nx, int Ny, int Nvel, int Nlif, string Nmov) : x(Nx), y(Ny) , velocity(Nvel), lifetime(Nlif), movement_type(Nmov){}
+particle (int Nx, int Ny, int NvelX,int NvelY, int Nlif, string Nmov) : x(Nx), y(Ny) , velocityX(NvelX), velocityY(NvelY), lifetime(Nlif), movement_type(Nmov){}
 int get_y(){
 return y;
 }
 int get_x(){
 return x;
 }
-int get_velocity(){
-return velocity;
+int get_velocityX(){
+return velocityX;
+}
+int get_velocityY(){
+return velocityY;
 }
 int get_lifetime(){
 return lifetime;
@@ -30,8 +35,11 @@ x = Nx;
 void set_y(int Ny){
 y = Ny;
 }
-void set_velocity(int Npos){
-velocity = Npos;
+void set_velocityX(int Npos){
+velocityX = Npos;
+}
+void set_velocityY(int Npos){
+velocityY = Npos;
 }
 void set_lifetime(int Npos){
 lifetime = Npos;
@@ -39,9 +47,15 @@ lifetime = Npos;
 void set_movement_type(string Npos){
 movement_type = Npos;
 }
-string physics(){
-return "PHYSICS :D";
+void physics(){
+	usleep(10000000);
+	x += velocityX;
+	y += velocityY;
+
 }
+
+
+
 string draw(){
 return "DRAW";
 }
