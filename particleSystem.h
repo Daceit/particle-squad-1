@@ -1,4 +1,5 @@
 #include <iostream>
+#include "particleGraphics.h"
 #include "particle.h"
 #include "cell.h"
 using namespace std;
@@ -62,11 +63,20 @@ public:
 	void moveParticles(){
 		//starting from head of linked list
 		Cell* current = head;
-		
+		//make sure to not let it go out of bounds, fix later***
+		int x = 0;
+		int y = 0;
+		PartGraphic pg; 
 		//going through each cell in list
 		while (current != nullptr){
+		x = current->getData().get_x();
+		y = current->getData().get_y();
+		
+		pg.draw_point(x, y);
+		delete pg;	
 		//apply physics
 		current->getData().physics();
+
 		//move to next cell
 		current = current->getNext();
 		}
