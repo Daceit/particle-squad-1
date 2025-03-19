@@ -1,11 +1,14 @@
 #include <iostream>
+#include <cstdlib>
+#include "/public/colors.h"
 using namespace std;
 
-class PartGraph {
-	string color;
+class PartGraphic {
+	string color = "\033[41m";
+//	auto [max_row,max_col] = get_terminal_size();
 
 	public:
-		PartGraph(string new_color) {
+		PartGraphic(string new_color) {
 			color = new_color;
 		}
 		void set_color(const string& new_color) {
@@ -14,20 +17,24 @@ class PartGraph {
 		string get_color() const {
 			return color;
 		}
-		void draw_point() {
-			cout << "Draw point\n";
+		void draw_point(int row, int col) {
+			movecursor(col,row);
+			cout << color;
+			cout << " ";
+			cout.flush();
+			resetcolor();
 		}
 		void draw_rectangle() {
-			cout << "Draw rectangle\n";
+			cerr << "Draw rectangle\n";
 		}
 		void draw_oval() {
-			cout << "Draw oval\n";
+			cerr << "Draw oval\n";
 		}
 		void draw_polygon() {
-			cout << "Draw polygon\n";
+			cerr << "Draw polygon\n";
 		}
 		void draw_line() {
-			cout << "Draw line\n";
+			cerr << "Draw line\n";
 		}
 
 
