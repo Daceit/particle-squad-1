@@ -60,10 +60,23 @@ public:
 		return count;
 	}
 	void moveParticles(){
-		cout << "Particles moved left" << endl;
+		//starting from head of linked list
+		Cell* current = head;
+		
+		//going through each cell in list
+		while (current != nullptr){
+		//apply physics
+		current->getData().physics();
+		//move to next cell
+		current = current->getNext();
+		}
 	}
 	void drawParticles(){
-		cout << "Draw particles" << endl;
+		Cell* current = head;
+		while (current != nullptr){
+		current->getData().draw();
+		current = current->getNext();
+		}
 	}
 	void drawWindow(){
 		cout << "Draw window" << endl;
