@@ -17,16 +17,23 @@ class PartGraphic {
 		string get_color() const {
 			return color;
 		}
-		void draw_point(int row, int col) {
+		void draw_point(int row = 0, int col = 0) {
 			clearscreen();
 			movecursor(col,row);
-			cout << color;
-			cout << " ";
+			cout << color << " ";
 			cout.flush();
 			resetcolor();
 		}
-		void draw_rectangle() {
-			cerr << "Draw rectangle\n";
+		void draw_rectangle(int x = 0, int y = 0, int max_x = 0, int max_y = 0) {
+			clearscreen();
+			for (int i = 0; i < max_y; i++) {
+				for (int j = 0; j < max_x; j++) {
+					movecursor(y+i,x+j);
+					cout << color << " ";
+					cout.flush();
+					resetcolor();
+				}
+			}
 		}
 		void draw_oval() {
 			cerr << "Draw oval\n";
