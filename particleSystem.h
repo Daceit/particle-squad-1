@@ -2,6 +2,7 @@
 #include "particleGraphics.h"
 #include "particle.h"
 #include "cell.h"
+#pragma once
 using namespace std;
 class particleSystem {
 	int columns, rows; 
@@ -31,7 +32,9 @@ public:
 	void addParticle(int x, int y){
 		// make new particle object with position x and y
 		// (all other vars are default)
-		Particle particle(x, y);
+		Particle particle;
+		particle.set_x(x);
+		particle.set_y(y);
 		// make new cell object named newCell with the new particle in its data 
 		// (next and prev are still nullptr)
 		Cell* newCell = new Cell(particle);
