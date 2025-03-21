@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <cstdlib>
 #include "/public/colors.h"
@@ -80,8 +81,10 @@ class PartGraphic {
             cout.flush();
             resetcolor();
         }	
-		// x,y is the upper left corner
-		// max_x,max_y is the lower right corner
+		// x,y is where to start making rectangle
+		// it starts making rectangle from the upper left corner
+		// max_x is how far to go right
+		// max_y is how far to go down
 		// if (hollow = true) the rectangle will be hollowed
 		void draw_rectangle(int x = 0, int y = 0, int max_x = 0, int max_y = 0, bool hollow = false) {
 			clearscreen();
@@ -106,7 +109,7 @@ class PartGraphic {
 		}
         void draw_rectangle_rgb(int x = 0, int y = 0, int max_x = 0, int max_y = 0, bool hollow = false) {
             clearscreen();
-            for (int i = 0; i < max_y; i++) {
+			for (int i = 0; i < max_y; i++) {
                 for (int j = 0; j < max_x; j++) {
                     if (!hollow) {
                         movecursor(y+i,x+j);
