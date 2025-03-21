@@ -31,10 +31,10 @@ _\ \ (_| | |_| | (_| | (_| |
 		cout << "2. Add Particle" << endl;
 		cout << "3. Draw Particles" << endl;
 		cout << "4. Run Physics" << endl;
-		cout << "5. Call ParticleSystem 1" << endl;
-		cout << "6. Call ParticleSystem 2" << endl;
-		cout << "7. Call ParticleSystem 3" << endl;
-		cout << "8. Call ParticleSystem 4" << endl;
+		cout << "5. Call Particle System 1" << endl;
+		cout << "6. Call Particle System 2" << endl;
+		cout << "7. Call Particle System 3" << endl;
+		cout << "8. Call Particle System 4" << endl;
 		cout << "9. Get Me Outta Here!" << endl;
 		cout << "what's it gonna be?? ";
 		cin >> selection;
@@ -46,4 +46,44 @@ _\ \ (_| | |_| | (_| | (_| |
 
 	}
 
+	switch (selection) {
+		case 1:
+			cout << "Run Tests" << endl;
+			break;
+			// makes x/y variables, takes user input
+			// then plugs into addParticle()
+		case 2:{
+			cout << "Add Particle" << endl;
+			int x = 0;
+			int y = 0;
+			cout << "gimme x: ";
+			cin >> x;
+			cout << "gimme y: ";
+			cin >> y;
+			system.addParticle(x, y);
+			break;
+		}
+		case 3:
+			cout << "Draw Particles" << endl;
+			system.drawParticles();
+			break;
+		case 4:
+			cout << "Run Physics" << endl;
+			moveParticles();
+			break;
+		case 5:
+			cout << "Call Particle System 1" << endl;
+			break;
+		case 6:
+            cout << "Call Particle System 2" << endl;
+            break;
+		case 7:
+            cout << "Call Particle System 3" << endl;
+            break;
+		case 8:
+            cout << "Call Particle System 4" << endl;
+            break;
+
+		
+	}
 }
