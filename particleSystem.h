@@ -61,22 +61,46 @@ public:
 		return count;
 	}
 	void moveParticles(){
+		auto [rows, cols] = get_terminal_size();
+		rows--;
+		cols--;
+		cout << "ROWS: " << rows << endl;
+		cout << "COLS: " << cols << endl;
 		//starting from head of linked list
 		Cell* current = head;
-		//make sure to not let it go out of bounds, fix later***
-		int x = 0;
-		int y = 0;
 		PartGraphic pg; 
 		//going through each cell in list
-		while (current != nullptr){
-		x = current->getData().get_x();
-		y = current->getData().get_y();
+		while (current != nullptr){	
 		
-		pg.draw_point(x, y);
-		delete pg;	
-		//apply physics
 		current->getData().physics();
 
+		int x = current->getData().get_x();
+		int y = current->getData().get_y();
+		int lifetime = current->getData().get_lifetime();
+		
+		if (x < 0 || x >= cols || y < 0 || y >= rows || lifetime <= 0){
+
+			Cell* toDelete = current;
+			current = current->getNext();
+
+			if (toDelete->getPrev() != nullptr) {
+			toDelete->getPrev()->setNext(toDelete->getNext());
+			}
+			else {
+			head = toDelete->getNext();
+			}
+			
+			if (toDelete->getNext() != nullptr) {
+			toDelete->getNext()->setPrev(toDelete->getPrev());
+			}
+			else {
+			tail = toDelete->getPrev();
+			}
+			delete toDelete;
+			count--;
+		} else {
+		pg.draw_point(x, y);
+		}
 		//move to next cell
 		current = current->getNext();
 		}
