@@ -63,7 +63,7 @@ _\ \ (_| | |_| | (_| | (_| |
 			system.addParticle(x, y);
 			break;
 		}
-		case 3:{
+		case 3:
 			cout << "Draw Particles" << endl;
 			system.drawParticles();
 			break;
@@ -84,6 +84,6 @@ _\ \ (_| | |_| | (_| | (_| |
             cout << "Call Particle System 4" << endl;
             break;
 
-		}
+		
 	}
 }
