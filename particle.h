@@ -1,5 +1,4 @@
 #pragma once
-//#include "particleSystem.h"
 #include <iostream>
 #include <string>
 #include "/public/colors.h"
@@ -51,28 +50,31 @@ class Particle {
 	void set_movement_type(string Npos){
 		movement_type = Npos;
 	}
+	if(movement_type == "FIREWORK_X" || movement_type == "FIREWORK_Y"){
+void physics(
+	} else {
 	void physics(){
 		if(movement_type == "BALLISTIC"){
-			usleep(10000000);
+			usleep(10000);
 			lifetime--;
 			x += velocityX;
 			y += velocityY;
 		} else if(movement_type == "STREAMER_X"){
-			usleep(10000000);
+			usleep(10000);
 			lifetime--;
 			x += velocityX;
 		} else if(movement_type == "STREAMER_Y"){
-			usleep(10000000);
+			usleep(10000);
 			lifetime--;
 			y += velocityY;
 		} else if(movement_type == "FIREWORK_X"){
-			usleep(10000000);
+			usleep(10000);
 			lifetime--;
 			x += velocityX;
 			if (lifetime == 0){
 			}
 		} else if(movement_type == "FIREWORK_Y"){
-			usleep(10000000);
+			usleep(10000);
 			lifetime--;
 			y += velocityY;
 
@@ -80,7 +82,7 @@ class Particle {
 			cout << "set movement_type to STREAMER_X, STREAMER_Y, BALLISTIC, FIREWORK_X or FIREWORK_Y" << endl;
 		}
 	}
-
+	}
 
 
 	void draw(){
