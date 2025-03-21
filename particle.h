@@ -50,9 +50,6 @@ class Particle {
 	void set_movement_type(string Npos){
 		movement_type = Npos;
 	}
-	if(movement_type == "FIREWORK_X" || movement_type == "FIREWORK_Y"){
-void physics(
-	} else {
 	void physics(){
 		if(movement_type == "BALLISTIC"){
 			usleep(10000);
@@ -81,7 +78,6 @@ void physics(
 		} else {
 			cout << "set movement_type to STREAMER_X, STREAMER_Y, BALLISTIC, FIREWORK_X or FIREWORK_Y" << endl;
 		}
-	}
 	}
 
 
