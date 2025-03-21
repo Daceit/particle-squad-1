@@ -64,9 +64,7 @@ public:
 		return count;
 	}
 	void moveParticles(){
-		//auto [rows, cols] = get_terminal_size();
-		int cols = 20;
-		int rows = 20;
+		auto [rows, cols] = get_terminal_size();
 		rows--;
 		cols--;
 		cout << "ROWS: " << rows << endl;
