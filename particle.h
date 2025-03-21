@@ -52,26 +52,26 @@ class Particle {
 	}
 	void physics(){
 		if(movement_type == "BALLISTIC"){
-			usleep(10000);
+			usleep(10);
 			lifetime--;
 			x += velocityX;
 			y += velocityY;
 		} else if(movement_type == "STREAMER_X"){
-			usleep(10000);
+			usleep(10);
 			lifetime--;
 			x += velocityX;
 		} else if(movement_type == "STREAMER_Y"){
-			usleep(10000);
+			usleep(10);
 			lifetime--;
 			y += velocityY;
 		} else if(movement_type == "FIREWORK_X"){
-			usleep(10000);
+			usleep(10);
 			lifetime--;
 			x += velocityX;
 			if (lifetime == 0){
 			}
 		} else if(movement_type == "FIREWORK_Y"){
-			usleep(10000);
+			usleep(10);
 			lifetime--;
 			y += velocityY;
 
