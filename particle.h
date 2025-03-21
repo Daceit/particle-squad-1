@@ -1,4 +1,5 @@
 #pragma once
+//#include "particleSystem.h"
 #include <iostream>
 #include <string>
 #include "/public/colors.h"
@@ -11,6 +12,8 @@ class Particle {
 	int lifetime = 50;
 	string movement_type = "UNSET"; // STREAMER  BALLISTIC  FIREWORK
 	public:
+	Particle(){}
+	Particle(int Nx, int Ny) : x{Nx}, y{Ny}{}
 	Particle (int Nx, int Ny, int NvelX,int NvelY, int Nlif, string Nmov) : x(Nx), y(Ny) , velocityX(NvelX), velocityY(NvelY), lifetime(Nlif), movement_type(Nmov){}
 	int get_y(){
 		return y;
@@ -67,7 +70,6 @@ class Particle {
 			lifetime--;
 			x += velocityX;
 			if (lifetime == 0){
-
 			}
 		} else if(movement_type == "FIREWORK_Y"){
 			usleep(10000000);
