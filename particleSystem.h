@@ -1,8 +1,8 @@
+#pragma once
 #include <iostream>
 #include "particleGraphics.h"
 #include "particle.h"
 #include "cell.h"
-#pragma once
 using namespace std;
 class particleSystem {
 	int columns, rows; 
