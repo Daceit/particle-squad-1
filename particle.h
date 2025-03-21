@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include "/public/colors.h"
-#include "particleSystem.h"
 using namespace std;
 class particle {
 int x = 0;
