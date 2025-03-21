@@ -29,10 +29,10 @@ public:
 		count = 0;
 	}
 
-	void addParticle(int x, int y){
+	void addParticle(int x, int y, int z, int v, int e,  string movement_type){
 		// make new particle object with position x and y
 		// (all other vars are default)
-		Particle particle(1,1,0,0,0,"somestring");
+		Particle particle(x,y,z,v,e, movement_type);
 		particle.set_x(x);
 		particle.set_y(y);
 		// make new cell object named newCell with the new particle in its data 
@@ -64,27 +64,27 @@ public:
 		return count;
 	}
 	void moveParticles(){
-		auto [rows, cols] = get_terminal_size();
+		//auto [rows, cols] = get_terminal_size();
+		int cols = 20;
+		int rows = 20;
 		rows--;
 		cols--;
 		cout << "ROWS: " << rows << endl;
 		cout << "COLS: " << cols << endl;
-		//starting from head of linked list
+		
 		Cell* current = head;
+
 		PartGraphic pg; 
 		//going through each cell in list
 		while (current != nullptr){	
-		
 		current->getData().physics();
-
 		int x = current->getData().get_x();
 		int y = current->getData().get_y();
 		int lifetime = current->getData().get_lifetime();
-		
 		if (x < 0 || x >= cols || y < 0 || y >= rows || lifetime <= 0){
 
 			Cell* toDelete = current;
-			current = current->getNext();
+	//		current = current->getNext();
 
 			if (toDelete->getPrev() != nullptr) {
 			toDelete->getPrev()->setNext(toDelete->getNext());
@@ -102,12 +102,11 @@ public:
 			delete toDelete;
 			count--;
 		} else {
-		x = current->getData().get_x();
-		y = current->getData().get_y();	
 		pg.draw_point(x, y);
-		current = current->getNext();
+		//current = current->getNext();
 		}
-		//move to next cell
+
+			current = current->getNext();
 		}
 	}
 	void drawParticles(){
