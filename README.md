@@ -4,8 +4,8 @@ pachinko machine maybe with blocks that break
 task B
 
 ## ✦ Tess ✦  
-Hia! I'll be doing a sparkler that follows the mouse
-implementing the doubly linked list by Monday 3-17 
+Hia! I'll be doing a sparkler
+Task A 
 
 ## Jun
 make a campfire with smoke particle
