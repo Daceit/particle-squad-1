@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string>
 #include "/public/colors.h"
+#include "particleSystem.h"
 using namespace std;
 class particle {
 int x = 0;
 int y = 0;
-int velocityX = 0;
-int velocityY = 0;
-int lifetime = 0;
+int velocityX = 10;
+int velocityY = 10;
+int lifetime = 50;
 string movement_type = "UNSET"; // STREAMER  BALLISTIC  FIREWORK
 public:
 particle (int Nx, int Ny, int NvelX,int NvelY, int Nlif, string Nmov) : x(Nx), y(Ny) , velocityX(NvelX), velocityY(NvelY), lifetime(Nlif), movement_type(Nmov){}
@@ -48,15 +49,40 @@ void set_movement_type(string Npos){
 movement_type = Npos;
 }
 void physics(){
+	if(movement_type == "BALLISTIC"){
 	usleep(10000000);
+	lifetime--;
 	x += velocityX;
 	y += velocityY;
+	} else if(movement_type == "STREAMER_X"){
+	usleep(10000000);
+	lifetime--;
+	x += velocityX;
+	} else if(movement_type == "STREAMER_Y"){
+	usleep(10000000);
+	lifetime--;
+	y += velocityY;
+	} else if(movement_type == "FIREWORK_X"){
+	usleep(10000000);
+	lifetime--;
+	x += velocityX;
+if (lifetime == 0){
 
+
+}
+	} else if(movement_type == "FIREWORK_Y"){
+	usleep(10000000);
+	lifetime--;
+	y += velocityY;
+
+	} else {
+		cout << "set movement_type to STREAMER_X, STREAMER_Y, BALLISTIC, FIREWORK_X or FIREWORK_Y" << endl;
+	}
 }
 
 
 
-string draw(){
-return "DRAW";
+void draw(){
+
 }
 };
