@@ -32,7 +32,7 @@ public:
 	void addParticle(int x, int y){
 		// make new particle object with position x and y
 		// (all other vars are default)
-		Particle particle;
+		Particle particle(1,1,0,0,0,"somestring");
 		particle.set_x(x);
 		particle.set_y(y);
 		// make new cell object named newCell with the new particle in its data 
@@ -102,10 +102,12 @@ public:
 			delete toDelete;
 			count--;
 		} else {
+		x = current->getData().get_x();
+		y = current->getData().get_y();	
 		pg.draw_point(x, y);
+		current = current->getNext();
 		}
 		//move to next cell
-		current = current->getNext();
 		}
 	}
 	void drawParticles(){
