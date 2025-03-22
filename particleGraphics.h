@@ -65,7 +65,8 @@ class PartGraphic {
         int get_b() const {
             return g;
         }
-
+		
+		// this draws a point based at the row and column given
 		void draw_point(int row = 0, int col = 0) {
 			clearscreen();
 			movecursor(col,row);
@@ -73,6 +74,7 @@ class PartGraphic {
 			cout.flush();
 			resetcolor();
 		}
+		// this is if you want to use rgb to draw a point
         void draw_point_rgb(int row = 0, int col = 0) {
             clearscreen();
             movecursor(col,row);
@@ -81,7 +83,7 @@ class PartGraphic {
             cout.flush();
             resetcolor();
         }	
-		// x,y is where to start making rectangle
+		// x,y is where it starts making rectangle
 		// it starts making rectangle from the upper left corner
 		// max_x is how far to go right
 		// max_y is how far to go down
@@ -107,6 +109,7 @@ class PartGraphic {
 				}
 			}
 		}
+		// this is if you want to use rgb to make a rectangle
         void draw_rectangle_rgb(int x = 0, int y = 0, int max_x = 0, int max_y = 0, bool hollow = false) {
             clearscreen();
 			for (int i = 0; i < max_y; i++) {
