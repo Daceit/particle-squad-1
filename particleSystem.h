@@ -9,7 +9,8 @@ class particleSystem {
 	Cell* head;
 	Cell* tail; 
 	int count;
-
+	//constructor which initializes the particlesystem with rows and cols
+	//sets head and tail of list to nullptr and count to 0
 public: 
 	particleSystem(int cols, int rows) : columns(cols), rows(rows), head(nullptr), tail(nullptr), count(0){}
 	
@@ -28,7 +29,8 @@ public:
 		head = tail = nullptr;
 		count = 0;
 	}
-
+	//creates a new particle and is held in a new cell
+	//Adds the cell to a linked list while updating pointer
 	void addParticle(int x, int y, int z, int v, int e,  string movement_type){
 		// make new particle object with position x and y
 		// (all other vars are default)
@@ -58,11 +60,14 @@ public:
 		count++;
 		cout << "Add particles" << endl; 
 	}
-	
+	//prints and returns the number of particles in the system
 	int numParticle(){
 		cout << "Number of paricles: " << count << endl;
 		return count;
 	}
+	//iterates through the list and calls physics onto the particle. 
+	//if the particle is out of the bounds or lifetime ends, the particle will be deleted from the list
+	//otherwise it's drawn on the screen using PartsGraphic
 	void moveParticles(){
 		auto [rows, cols] = get_terminal_size();
 		rows--;
@@ -107,6 +112,7 @@ public:
 			current = current->getNext();
 		}
 	}
+	//iterates through the list and calls the draw method on each particle as long as it != to nullptr
 	void drawParticles(){
 		Cell* current = head;
 		while (current != nullptr){
@@ -114,6 +120,7 @@ public:
 		current = current->getNext();
 		}
 	}
+	//just prints Draw Window (currently a placeholder as not told what to do with yet)
 	void drawWindow(){
 		cout << "Draw window" << endl;
 	}
