@@ -44,7 +44,6 @@ _\ \ (_| | |_| | (_| | (_| |
 			break;
 		}
 
-	}
 
 	switch (selection) {
 		case 1:
@@ -96,6 +95,6 @@ _\ \ (_| | |_| | (_| | (_| |
             cout << "Call Particle System 4" << endl;
             break;
 
-		
 	}
+}
 }
