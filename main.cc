@@ -81,7 +81,7 @@ _\ \ (_| | |_| | (_| | (_| |
 			break;
 		case 4:
 			cout << "Run Physics" << endl;
-			moveParticles();
+			system.moveParticles();
 			break;
 		case 5:
 			cout << "Call Particle System 1" << endl;
