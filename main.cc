@@ -56,11 +56,23 @@ _\ \ (_| | |_| | (_| | (_| |
 			cout << "Add Particle" << endl;
 			int x = 0;
 			int y = 0;
+			int z = 0;
+			int v = 0;
+			int e = 0;
+			string movement_type = "";
 			cout << "gimme x: ";
 			cin >> x;
 			cout << "gimme y: ";
 			cin >> y;
-			system.addParticle(x, y);
+			cout << "gimme z: ";
+			cin >> z;
+			cout << "gimme v: ";
+			cin >> v;
+			cout << "gimme e: ";
+			cin >> e;
+			cout << "gimme type: STREAMER  BALLISTIC  FIREWORK: ";
+			cin >> movement_type;
+			system.addParticle(x, y, z, v, e, movement_type);
 			break;
 		}
 		case 3:
