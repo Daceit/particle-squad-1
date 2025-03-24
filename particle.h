@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include "/public/colors.h"
-//#include "particleSystem.h"
+#include "particleSystem.h"
 using namespace std;
 class Particle {
 	int x = 0;
@@ -70,8 +70,8 @@ class Particle {
 			cout << "set movement_type to STREAMER_X, STREAMER_Y, BALLISTIC, FIREWORK_X or FIREWORK_Y" << endl;
 		}
 	}
-	/*
-void physics(particalSystem &a){
+
+void physics(particaleSystem &a){
 		  if(movement_type == "FIREWORK_X"){
 			usleep(10);
 			lifetime--;
@@ -88,7 +88,7 @@ a.addParticle(x-1,y);
 			y += velocityY;
 }
 }
-*/
+
 	void draw(){
 
 	}
