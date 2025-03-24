@@ -199,19 +199,25 @@ void physics(particleSystem &a){
             lifetime--;
             x += velocityX;
             if (lifetime == 0){
-a.addParticle(x,y+1);
-a.addParticle(x+1,y);
-a.addParticle(x,y-1);
-a.addParticle(x-1,y);
+a.addParticle(x,y+1,1,1,50,"STREAMER_Y");
+a.addParticle(x+1,y,1,1,50,"STREAMER_X");
+a.addParticle(x,y-1,1,1,50,"STREAMER_Y");
+a.addParticle(x-1,y,1,1,50,"STREAMER_x");
             }
         } else if(movement_type == "FIREWORK_Y"){
             usleep(10);
             lifetime--;
             y += velocityY;
+            if (lifetime == 0){
+a.addParticle(x,y+1,1,1,50,"STREAMER_Y");
+a.addParticle(x+1,y,1,1,50,"STREAMER_X");
+a.addParticle(x,y-1,1,1,50,"STREAMER_Y");
+a.addParticle(x-1,y,1,1,50,"STREAMER_x");
+            }
 }
 }
 
     void draw(){
-
+//i have no idea what to put here 
     }
 };	
