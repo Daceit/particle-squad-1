@@ -54,16 +54,16 @@ class Particle {
 	
 	void physics(){
 		if(movement_type == "BALLISTIC"){
-			usleep(10);
+			usleep(1000000);
 			lifetime--;
 			x += velocityX;
 			y += velocityY;
 		} else if(movement_type == "STREAMER_X"){
-			usleep(10);
+			usleep(1000000);
 			lifetime--;
 			x += velocityX;
 		} else if(movement_type == "STREAMER_Y"){
-			usleep(10);
+			usleep(1000000);
 			lifetime--;
 			y += velocityY;
 		} else {
@@ -71,7 +71,7 @@ class Particle {
 		}
 	}
 /*
-void physics(particaleSystem &a){
+void physics(particleSystem &a){
 		  if(movement_type == "FIREWORK_X"){
 			usleep(10);
 			lifetime--;
