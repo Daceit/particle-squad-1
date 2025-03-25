@@ -4,7 +4,7 @@
 #include <iostream>
 #include "particleGraphics.h"
 #include "cell.h"
-using namespace std;
+//using namespace std;
 class particleSystem {
 	int columns, rows; 
 	Cell* head;
