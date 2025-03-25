@@ -17,11 +17,15 @@ public:
 	Cell(const Particle& particle) : data(particle), prev(nullptr), next(nullptr){
 	}
 
-	// getter for data, const bc wont change value
-	Particle getData() const{
+	// getter for data by reference
+	Particle& getData() {
 		return data;
 	}
 
+	// const version if requested
+	const Particle& getData() const {
+		return data;	
+	
 	// getter for prev, const bc wont change value
 	Cell* getPrev() const{
 		return prev;
