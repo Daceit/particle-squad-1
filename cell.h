@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include "particle.h"
 using namespace std;
@@ -25,7 +26,7 @@ public:
 	// const version if requested
 	const Particle& getData() const {
 		return data;	
-	
+	}
 	// getter for prev, const bc wont change value
 	Cell* getPrev() const{
 		return prev;
