@@ -7,7 +7,7 @@ using namespace std;
 class PartGraphic {
 	string color = "\033[41m";
 	int r = 0,g = 0,b = 0;
-	int max_row = 0;
+	int max_row = 9990;
 	int max_col = 0;
 
 	public:
@@ -32,6 +32,7 @@ class PartGraphic {
 		max_col = col;
 
 	}
+
 	void set_color(const string& new_color) {
 		color = new_color;
 	}
@@ -111,34 +112,32 @@ class PartGraphic {
 	// max_y is how far to go down
 	// if (hollow = true) the rectangle will be hollowed
 	void draw_rectangle(int x = 0, int y = 0, int max_x = 0, int max_y = 0, bool hollow = false) {
-		clearscreen();
 		for (int i = 0; i < max_y; i++) {
 			for (int j = 0; j < max_x; j++) {
 				if (!hollow) {
-					draw_point(y+i,x+j);
+					draw_point(x+j,y+i);
 				}	
 				if (i == 0 || i == (max_y - 1)) {	
-					draw_point(y+i,x+j);
+					draw_point(x+j,y+i);
 
 				} else if (j == 0 || j == (max_x - 1)) {
-					draw_point(y+i,x+j);
+					draw_point(x+j,y+i);
 				}
 			}
 		}
 	}
 	// this is if you want to use rgb to make a rectangle
 	void draw_rectangle_rgb(int x = 0, int y = 0, int max_x = 0, int max_y = 0, bool hollow = false) {
-		clearscreen();
 		for (int i = 0; i < max_y; i++) {
 			for (int j = 0; j < max_x; j++) {
 				if (!hollow) {
-					draw_point_rgb(y+i,x+j);
+					draw_point_rgb(x+j,y+i);
 				}
 				if (i == 0 || i == (max_y - 1)) {
-					draw_point_rgb(y+i,x+j);
+					draw_point_rgb(x+j,y+i);
 
 				} else if (j == 0 || j == (max_x - 1)) {
-					draw_point_rgb(y+i,x+j);
+					draw_point_rgb(x+j,y+i);
 				}
 			}
 		}
@@ -154,17 +153,22 @@ class PartGraphic {
 		// horizontal line
 		if (str == "horizontal") {
 			for (int i = 0; i < distance; i++) {
-				draw_point(y,x+i);
+				draw_point(x+i,y);
 			}
 		} else if (str == "vertical") {
 			for (int i = 0; i < distance; i++) {
-				draw_point(y+i,x); 
+				draw_point(x,y+i); 
 			}
-		} else if (str == "diagonal") {
+		} else if (str == "diagonal_down") {
 			for (int i = 0; i < distance; i++) {
-				draw_point(y+i,x+i);
+				draw_point(x+i,y+i);
 			}
-		}
+		}  else if (str == "diagonal_up") {
+            for (int i = 0; i < distance; i++) {
+                draw_point(x+i,y-i);
+            }
+        }
+
 	}
 
 
