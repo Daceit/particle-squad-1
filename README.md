@@ -8,7 +8,7 @@ Hia! I'll be doing a sparkler
 Task A 
 
 ## Jun
-make a campfire with smoke particle
+make a chimney with smoke particle
 Task d
 
 ## Raymond
