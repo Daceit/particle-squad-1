@@ -7,15 +7,10 @@ using namespace std;
 class PartGraphic {
 	string color = "\033[41m";
 	int r = 0,g = 0,b = 0;
-	int max_row = 9990;
-	int max_col = 0;
 
 	public:
 	PartGraphic(string new_color) {
 		color = new_color;
-		auto [row, col] = get_terminal_size();
-		max_row = row;
-		max_col = col;
 	}
 	PartGraphic(int new_r = 0, int new_g = 0, int new_b = 0) {
 		if (new_r > 0 && new_r < 255) {
@@ -27,9 +22,6 @@ class PartGraphic {
 		if (new_b > 0 && new_b < 255) {
 			b = new_b;
 		}  
-		auto [row, col] = get_terminal_size();
-		max_row = row;
-		max_col = col;
 
 	}
 
@@ -75,36 +67,23 @@ class PartGraphic {
 		return b;
 	}
 
-	// checks if the point is out of bound
-	bool out_of_bound(int x = 0, int y = 0) {
-		if (x < 0 || x >= max_row) {
-			return true;
-		} else if (y < 0 || y >= max_col) {
-			return true;
-		}
-		return false;
-	}
 
 	// if point is out of bound it's going to do nothing
 	// this draws a point based at the row and column given
 	void draw_point(int row = 0, int col = 0) {
-		if (!out_of_bound(row,col)) {
 			movecursor(col,row);
 			cout << color << " ";
 			cout.flush();
 			resetcolor();
-		}
 	}
 
 	// this is if you want to use rgb to draw a point
 	void draw_point_rgb(int row = 0, int col = 0) {
-		if (!out_of_bound(row,col)) {    
 			movecursor(col,row);
 			setbgcolor(r,g,b);
 			cout << " ";
 			cout.flush();
 			resetcolor();
-		}
 	}	
 	// x,y is where it starts making rectangle
 	// it starts making rectangle from the upper left corner
