@@ -59,7 +59,6 @@ public:
 		}
 		// Increase the count after adding a new node
 		count++;
-		cout << "Add particles" << endl; 
 	}
 	//prints and returns the number of particles in the system
 	int numParticle(){
@@ -85,32 +84,33 @@ public:
 		int x = current->getData().get_x();
 		int y = current->getData().get_y();
 		int lifetime = current->getData().get_lifetime();
+		Cell* next = current->getNext(); //get next before deleting
 		if (x < 0 || x >= cols || y < 0 || y >= rows || lifetime <= 0){
 
-			Cell* toDelete = current;
-	//		current = current->getNext();
+			//Cell* toDelete = current;
+			//current = current->getNext();
 
-			if (toDelete->getPrev() != nullptr) {
-			toDelete->getPrev()->setNext(toDelete->getNext());
+			if (current->getPrev() != nullptr) {
+			current->getPrev()->setNext(current->getNext());
 			}
 			else {
-			head = toDelete->getNext();
+			head = current->getNext();
 			}
 			
-			if (toDelete->getNext() != nullptr) {
-			toDelete->getNext()->setPrev(toDelete->getPrev());
+			if (current->getNext() != nullptr) {
+			current->getNext()->setPrev(current->getPrev());
 			}
 			else {
-			tail = toDelete->getPrev();
+			tail = current->getPrev();
 			}
-			delete toDelete;
+			delete current;
 			count--;
 		} else {
 		pg.draw_point(x, y);
 		//current = current->getNext();
 		}
 
-			current = current->getNext();
+			current = next;
 		}
 	}
 	//iterates through the list and calls the draw method on each particle as long as it != to nullptr
