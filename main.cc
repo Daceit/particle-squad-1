@@ -11,6 +11,7 @@ int main() {
 	particleSystem system(cols, rows);
 
 	int selection = 0;
+
 	while (true) {
 	// yay ascii!
 		cout << R"(   ___           _   _      _      
@@ -27,19 +28,20 @@ _\ \ (_| | |_| | (_| | (_| |
        |_|                  
 		)" << endl;
 
-		cout << "1. Run Tests" << endl;
+		cout << "1. Run A Custom Test" << endl;
 		cout << "2. Add Particle" << endl;
-		cout << "3. Draw Particles" << endl;
-		cout << "4. Run Physics" << endl;
-		cout << "5. Call Particle System 1" << endl;
-		cout << "6. Call Particle System 2" << endl;
-		cout << "7. Call Particle System 3" << endl;
-		cout << "8. Call Particle System 4" << endl;
-		cout << "9. Get Me Outta Here!" << endl;
+//		cout << "3. Draw Particles" << endl; // when you run test, it will do the drawing and physic
+//		cout << "4. Run Physics" << endl;
+		cout << "3. Call Particle System 1" << endl;
+		cout << "4. Call Particle System 2" << endl;
+		cout << "5. Call Particle System 3" << endl;
+		cout << "6. Call Particle System 4" << endl;
+		cout << "7. Run A Default Test" << endl;
+		cout << "8. Get Me Outta Here!" << endl;
 		cout << "what's it gonna be?? ";
 		cin >> selection;
 
-		if (selection == 9) {
+		if (selection == 8) {
 			cout << "seeya!" << endl;
 			break;
 		}
@@ -48,6 +50,10 @@ _\ \ (_| | |_| | (_| | (_| |
 	switch (selection) {
 		case 1:
 			cout << "Run Tests" << endl;
+			while (system.numParticle() > 0) {
+				clearscreen();
+				system.moveParticles();
+			}
 			break;
 			// makes x/y variables, takes user input
 			// then plugs into addParticle()
@@ -59,22 +65,22 @@ _\ \ (_| | |_| | (_| | (_| |
 			int v = 0;
 			int e = 0;
 			string movement_type = "";
-			cout << "gimme x: ";
+			cout << "gimme row: ";
 			cin >> x;
-			cout << "gimme y: ";
+			cout << "gimme column: ";
 			cin >> y;
-			cout << "gimme z: ";
+			cout << "gimme row velocity: ";
 			cin >> z;
-			cout << "gimme v: ";
+			cout << "gimme column velocity: ";
 			cin >> v;
-			cout << "gimme e: ";
+			cout << "gimme lifetime: ";
 			cin >> e;
 			cout << "gimme type: STREAMER  BALLISTIC  FIREWORK: ";
 			cin >> movement_type;
 			system.addParticle(x, y, z, v, e, movement_type);
 			break;
 		}
-		case 3:
+/*		case 3:
 			cout << "Draw Particles" << endl;
 			system.drawParticles();
 			break;
@@ -82,17 +88,35 @@ _\ \ (_| | |_| | (_| | (_| |
 			cout << "Run Physics" << endl;
 			system.moveParticles();
 			break;
-		case 5:
+*/
+		case 3:
 			cout << "Call Particle System 1" << endl;
 			break;
-		case 6:
+		case 4:
             cout << "Call Particle System 2" << endl;
             break;
-		case 7:
+		case 5:
             cout << "Call Particle System 3" << endl;
             break;
-		case 8:
+		case 6:
             cout << "Call Particle System 4" << endl;
+            break;
+		case 7:
+			system.addParticle(1, 1, 1, 1, 5, "STREAMER_Y");
+			system.addParticle(3, 1, 1, 1, 5, "STREAMER_Y");
+			system.addParticle(8, 1, 1, 1, 5, "STREAMER_Y");
+			system.addParticle(10, 1, 1, 1, 5, "STREAMER_Y");
+			system.addParticle(18, 1, 1, 1, 5, "STREAMER_Y");
+			system.addParticle(28, 1, 1, 1, 5, "STREAMER_Y");
+			while (system.numParticle() > 0) {
+				clearscreen();
+                system.moveParticles();
+				int timer = 10000000;
+                while (timer > 0) {
+					timer--;
+				}
+            }
+
             break;
 
 	}

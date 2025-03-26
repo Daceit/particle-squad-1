@@ -9,7 +9,7 @@ class particleSystem {
 	int columns, rows; 
 	Cell* head;
 	Cell* tail; 
-	int count;
+	int count = 0;
 	//constructor which initializes the particlesystem with rows and cols
 	//sets head and tail of list to nullptr and count to 0
 public: 
@@ -63,7 +63,7 @@ public:
 	}
 	//prints and returns the number of particles in the system
 	int numParticle(){
-		cout << "Number of paricles: " << count << endl;
+//		cout << "Number of paricles: " << count << endl;
 		return count;
 	}
 	//iterates through the list and calls physics onto the particle. 
@@ -73,8 +73,8 @@ public:
 		auto [rows, cols] = get_terminal_size();
 		rows--;
 		cols--;
-		cout << "ROWS: " << rows << endl;
-		cout << "COLS: " << cols << endl;
+//		cout << "ROWS: " << rows << endl;
+//		cout << "COLS: " << cols << endl;
 		
 		Cell* current = head;
 
