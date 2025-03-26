@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "/public/colors.h"
+#include <cstdlib>
 //#include "particleSystem.h"
 using namespace std;
 class Particle {
@@ -82,6 +83,17 @@ class Particle {
 			usleep(1000000);
 			lifetime--;
 			y += velocityY;
+		} else if(movement_type == "MATTWIND"){
+			usleep(1000000);
+			lifetime--;
+			x += velocityX;
+			if(rand() < RAND_MAX/2){
+			y += rand() % 3;
+			}else{
+			y += (rand() % 2) * -1;
+
+
+			}
 		} else {
 			//displays when movement type is not set
 			cout << "set movement_type to STREAMER_X, STREAMER_Y, BALLISTIC, FIREWORK_X or FIREWORK_Y" << endl;

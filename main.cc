@@ -1,7 +1,10 @@
 #include <iostream>
 #include <string>
 #include "particleSystem.h"
-
+#include <cstdlib> //rand()
+#include <ctime> //time(nullptr) random number gen
+#include <thread> //control fps
+#include <chrono> //used with thread
 using namespace std;
 
 int main() {
@@ -90,7 +93,17 @@ _\ \ (_| | |_| | (_| | (_| |
 			break;
 */
 		case 3:
-			cout << "Call Particle System 1" << endl;
+			system.addParticle(1, 5, 1, 1, 100, "MATTWIND");
+			while (system.numParticle() > 0) {
+				clearscreen();
+                system.moveParticles();
+				int timer = 10000000;
+                while (timer > 0) {
+					timer--;
+				}
+			}
+    cout << "Call Particle System 1 (Matthew wind)" << endl;
+
 			break;
 		case 4:
             cout << "Call Particle System 2" << endl;
