@@ -65,9 +65,9 @@ _\ \ (_| | |_| | (_| | (_| |
 			int v = 0;
 			int e = 0;
 			string movement_type = "";
-			cout << "gimme row: ";
-			cin >> x;
 			cout << "gimme column: ";
+			cin >> x;
+			cout << "gimme row: ";
 			cin >> y;
 			cout << "gimme row velocity: ";
 			cin >> z;
