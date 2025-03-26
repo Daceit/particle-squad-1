@@ -82,6 +82,9 @@ class Particle {
 			usleep(1000000);
 			lifetime--;
 			y += velocityY;
+		} else if (movement_type == "UP") {
+			lifetime--;
+			y -= velocityY;
 		} else {
 			//displays when movement type is not set
 			cout << "set movement_type to STREAMER_X, STREAMER_Y, BALLISTIC, FIREWORK_X or FIREWORK_Y" << endl;
